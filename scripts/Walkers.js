@@ -11,7 +11,11 @@ document.addEventListener(
 
             for (const walker of walkers) {
                 if (walker.id === parseInt(walkerId)) {
-                    window.alert(`${walker.name} services ${cities.name}`)
+                    for (const city of cities){
+                        if (walker.cityId === city.id){
+                            window.alert(`${walker.name} services ${city.name}`)
+                        }
+                    }
                 }
             }
         }
