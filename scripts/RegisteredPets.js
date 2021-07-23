@@ -13,7 +13,7 @@ document.addEventListener(
             for (const pet of pets) {
                 if (pet.id === parseInt(petId)) {
                     
-                    let assignedWalker = {name: ""};        // can also put in an empty string 
+                    let assignedWalker = {name: ""};
                     
                     for (const walker of walkers) {
                         if (walker.id === pet.walkerId) {

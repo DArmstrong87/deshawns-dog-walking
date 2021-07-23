@@ -140,9 +140,6 @@ const database = {
     }]
 }
 
-// for (const city of database.cities){
-// console.log(city.name)
-// }
 export const getWalkers = () => {
     return database.walkers.map(walker => ({...walker}))
 }
