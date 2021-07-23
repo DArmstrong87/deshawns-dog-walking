@@ -18,7 +18,6 @@ document.addEventListener(
     }
 )
 
-console.log(cities.name)
 export const Walkers = () => {
     let walkerHTML = "<ul>"
 

@@ -19,33 +19,30 @@ const findWalker = (pet, allWalkers) => {
     return petWalker
 }
 
-const currentCity = (cityArray) => {
-    let theCity  = {}
-    for (const currentCity of cityArray){
-        if (walkers.cityId === currentCity.id){
-            theCity = currentCity
-        }
-        return theCity
+const findCity = (currentPetWalker) => {
+    let walkerCity = ''
+    for (const city of cities){
+    if (currentPetWalker.cityId === city.id)
+        walkerCity = city
     }
+    return walkerCity
 }
-// const thisCity = currentCity()
 
 export const Assignments = () => {
     let assignmentHTML = ""
     assignmentHTML = "<ul>"  
     for (const currentPet of pets) {
         const currentPetWalker = findWalker(currentPet, walkers)
-        const thisCity = currentCity(cities)
-        assignmentHTML += `
+        const walkerCity = findCity(currentPetWalker)
+            assignmentHTML += `
             <li>
-                ${currentPet.name} is being walked by
-                ${currentPetWalker.name} in ${thisCity.name}
+            ${currentPet.name} is being walked by
+            ${currentPetWalker.name} in ${walkerCity.name}
             </li>
-        `
-    }
-
-    assignmentHTML += "</ul>"
-
-    return assignmentHTML
+            `
+        }
+        
+        assignmentHTML += "</ul>"
+        
+        return assignmentHTML
 }
-
