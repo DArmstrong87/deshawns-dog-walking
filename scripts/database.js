@@ -119,8 +119,6 @@ function newCityArray(){
 }
 
 newCityArray();
-            
-console.log(database.cities)
 
 export const getWalkers = () => {
     return database.walkers.map(walker => ({...walker}))
