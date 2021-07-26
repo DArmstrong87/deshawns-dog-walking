@@ -105,12 +105,10 @@ function addCitiesArray (){
 }
 addCitiesArray();
 
-function newCityArray(){
-    let cityName = ''
+function addCityProperties(){
     for (const walker of database.walkers){
-        cityName = walker.city
         database.cities.push({id: walker.id,
-            name: cityName})
+            name: walker.city})
             for (const city of database.cities){
                 walker.cityId = city.id
             }
@@ -118,7 +116,7 @@ function newCityArray(){
     }
 }
 
-newCityArray();
+addCityProperties();
 
 export const getWalkers = () => {
     return database.walkers.map(walker => ({...walker}))
