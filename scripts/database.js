@@ -116,7 +116,7 @@ function newCityArray(){
             }
         delete walker.city
     }
-}    
+}
 
 newCityArray();
             
