@@ -6,96 +6,56 @@
 
 */
 const database = {
-    cities: [{
-        id: 1,
-        name: "Chicago"
-    },
-    {
-        id: 2,
-        name: "White Plains"
-    },
-    {
-        id: 3,
-        name: "Sarasota"
-    },
-    {
-        id: 4,
-        name: "San Diego"
-    },
-    {
-        id: 5,
-        name: "Boise"
-    },
-    {
-        id: 6,
-        name: "Denver"
-    },
-    {
-        id: 7,
-        name: "Tucson"
-    },
-    {
-        id: 8,
-        name: "Phoenix"
-    },
-    {
-        id: 9,
-        name: "Minneapolis"
-    },
-    {
-        id: 10,
-        name: "Pittsburgh"
-    }],
     walkers: [{
         id: 1,
         name: "Alphonse Meron",
         email: "ameron0@mashable.com",
-        cityId: 1
+        city: "Chicago"
     }, {
         id: 2,
         name: "Damara Pentecust",
         email: "dpentecust1@apache.org",
-        cityId: 2
+        city: "White Plains"
     }, {
         id: 3,
         name: "Anna Bowton",
         email: "abowton2@wisc.edu",
-        cityId: 3
+        city: "Sarasota"
     }, {
         id: 4,
         name: "Hunfredo Drynan",
         email: "hdrynan3@bizjournals.com",
-        cityId: 4
+        city: "San Diego"
     }, {
         id: 5,
         name: "Elmira Bick",
         email: "ebick4@biblegateway.com",
-        cityId: 5
+        city: "Boise"
     }, {
         id: 6,
         name: "Bernie Dreger",
         email: "bdreger5@zimbio.com",
-        cityId: 6
+        city: "Denver"
     }, {
         id: 7,
         name: "Rolando Gault",
         email: "rgault6@google.com",
-        cityId: 7
+        city: "Tucson"
     }, {
         id: 8,
         name: "Tiffanie Tubby",
         email: "ttubby7@intel.com",
-        cityId: 8
+        city: "Phoenix"
     }, {
         id: 9,
         name: "Tomlin Cutill",
         email: "tcutill8@marketwatch.com",
-        cityId: 9
+        city: "Minneapolis"
     }, {
         id: 10,
         name: "Arv Biddle",
         email: "abiddle9@cafepress.com",
-        cityId: 10
+        city: "Pittsburgh"
     }],
     pets: [{
         id: 1,
@@ -139,6 +99,28 @@ const database = {
         walkerId: 7
     }]
 }
+
+function addCitiesArray (){
+    database.cities = []
+}
+addCitiesArray();
+
+function newCityArray(){
+    let cityName = ''
+    for (const walker of database.walkers){
+        cityName = walker.city
+        database.cities.push({id: walker.id,
+            name: cityName})
+            for (const city of database.cities){
+                walker.cityId = city.id
+            }
+        delete walker.city
+    }
+}    
+
+newCityArray();
+            
+console.log(database.cities)
 
 export const getWalkers = () => {
     return database.walkers.map(walker => ({...walker}))
